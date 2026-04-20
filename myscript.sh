@@ -1,0 +1,14 @@
+/your-website
+    index1.html
+    services.html
+    about.html
+    contact.html
+    quick-quote.html
+    booking.html
+    css/
+        styles.css
+    images/
+        logos.png
+        car_background.jpg
+    js/
+        script.js

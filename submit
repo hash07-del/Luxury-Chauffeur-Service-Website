@@ -1,0 +1,35 @@
+<?php
+var_dump($_POST);
+ob_start(); // Start output buffering
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Collect form data
+    $first_name = $_POST['first-name'];
+    $last_name = $_POST['last-name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $passengers = $_POST['passengers'];
+    $vehicle_type = $_POST['vehicle-type'];
+    $datetime = $_POST['datetime'];
+    $pickup_location = $_POST['pickup-location'];
+    $dropoff_location = $_POST['dropoff-location'];
+    $payment_method = $_POST['payment-method'];
+    $message = $_POST['message'];
+
+    // Email information
+    $to = 'aadelhashmi745@gmail.com'; // Change this to your email address
+    $subject = 'New Booking Request';
+    $message_body = "First Name: $first_name\nLast Name: $last_name\nEmail: $email\nPhone: $phone\nNumber of Passengers: $passengers\nVehicle Type: $vehicle_type\nDate and Time: $datetime\nPickup Location: $pickup_location\nDrop Off Location: $dropoff_location\nPayment Method: $payment_method\n\nMessage:\n$message";
+
+    // Send email
+    mail($to, $subject, $message_body);
+
+    // Redirect to thank you page
+    header('Location: thank-you.html');
+    exit;
+} else {
+    // Redirect to index page if accessed directly
+    header('Location: index1.html');
+    exit;
+}
+ob_end_flush(); // Flush the output buffer
+?>

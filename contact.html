@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | BlackStone Luxury Limo</title>
+
+  <!-- Fonts (same as your template) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Page spacing (below sticky header) */
+    .page { padding: 90px 0 40px; }
+
+    /* Contact hero (same hero system as index, but content for contact) */
+    .contact-hero {
+      position: relative;
+      min-height: 70vh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Swap this image to your preferred contact background */
+    .contact-hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("contact_background.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05) contrast(1.05);
+      transform: scale(1.02);
+    }
+
+    .contact-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(7,10,18,0.92) 0%, rgba(7,10,18,0.78) 55%, rgba(7,10,18,0.55) 100%),
+        radial-gradient(900px 420px at 20% 10%, rgba(23,67,227,0.26), transparent 60%);
+    }
+
+    .contact-hero__content {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 26px;
+      padding: 74px 0 28px;
+    }
+
+    .contact-hero__subtitle { max-width: 62ch; }
+
+    .contact-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 10px 0 18px;
+    }
+
+    .contact-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .contact-meta .meta-card { min-height: 86px; }
+
+    /* Right card (like index “Popular Services”, but “Direct”) */
+    .direct-card .hero-card__title { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .direct-pill {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+      font-weight: 700;
+      font-size: 12px;
+      color: rgba(255,255,255,0.86);
+      white-space: nowrap;
+    }
+
+    .direct-list {
+      margin-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .direct-row {
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 12px 2px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      font-size: 14px;
+      color: rgba(255,255,255,0.86);
+    }
+    .direct-row:last-child { border-bottom: none; }
+    .direct-row span:first-child { color: rgba(255,255,255,0.68); }
+
+    /* Section tweaks for Contact page */
+    .contact-grid { margin-top: 26px; }
+
+    .info-card h3 { margin-bottom: 10px; }
+    .info-card p { margin-bottom: 0; }
+
+    /* Image tiles section */
+    .tiles {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .tile {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius2);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .tile:hover {
+      transform: translateY(-4px);
+      border-color: rgba(95,125,255,0.30);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .tile__img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .tile__body { padding: 16px; }
+    .tile__body h3 {
+      font-family: "Montserrat", sans-serif;
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+    .tile__body p {
+      margin: 0;
+      color: rgba(255,255,255,0.74);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* FAQ accordion (simple, premium) */
+    .faq {
+      margin-top: 8px;
+      display: grid;
+      gap: 10px;
+    }
+
+    details.faq-item {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius2);
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+    }
+
+    details.faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      color: rgba(255,255,255,0.90);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    details.faq-item summary::-webkit-details-marker { display:none; }
+
+    .faq-a {
+      margin-top: 10px;
+      color: rgba(255,255,255,0.74);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .contact-hero__content { grid-template-columns: 1fr; padding: 68px 0 22px; }
+      .contact-meta { grid-template-columns: 1fr; }
+      .tiles { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header (same as your template) -->
+  <header class="header" id="top">
+    <a class="brand" href="index1.html" aria-label="BlackStone Luxury Limo Home">
+      <img class="brand__logo" src="flogo.png" alt="BlackStone Luxury Limo logo" />
+      <div class="brand__text">
+        <span class="brand__name">BlackStone</span>
+        <span class="brand__tag">Luxury Limo</span>
+      </div>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <a class="nav__link" href="index1.html">Home</a>
+      <a class="nav__link" href="services.html">Services</a>
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link active" href="contact.html">Contact</a>
+      <a class="nav__link nav__link--pill" href="quick-quote.html">Quick Quote</a>
+      <a class="nav__link nav__link--pill nav__link--primary" href="booking.html">Booking</a>
+    </nav>
+  </header>
+
+  <!-- Contact Hero -->
+  <section class="contact-hero">
+    <div class="contact-hero__bg" aria-hidden="true"></div>
+
+    <div class="container contact-hero__content">
+      <div>
+        <div class="badge">
+          <span class="badge__dot"></span>
+          Concierge Chauffeur Service • GTA + Beyond
+        </div>
+
+        <h1 class="hero__title">Contact BlackStone</h1>
+
+        <p class="hero__subtitle contact-hero__subtitle">
+          For bookings, airport transfers, corporate travel, and special events.
+          If you need a ride soon, booking is the fastest option — otherwise call or email and we’ll respond promptly.
+        </p>
+
+        <div class="contact-cta">
+          <a class="btn btn--primary" href="booking.html">Request a Booking</a>
+          <a class="btn btn--ghost" href="quick-quote.html">Get a Quick Quote</a>
+          <a class="btn btn--ghost" href="tel:647-786-6614">Call 647-786-6614</a>
+        </div>
+
+        <div class="contact-meta">
+          <div class="meta-card">
+            <div class="meta-card__top">Location</div>
+            <div class="meta-card__bottom">Markham, Ontario</div>
+          </div>
+          <div class="meta-card">
+            <div class="meta-card__top">Service Area</div>
+            <div class="meta-card__bottom">GTA + Ontario</div>
+          </div>
+          <div class="meta-card">
+            <div class="meta-card__top">Primary Vehicle</div>
+            <div class="meta-card__bottom">GMC Yukon XL</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__right">
+        <div class="hero-card direct-card">
+          <div class="hero-card__title">
+            <span>Direct</span>
+            <span class="direct-pill">Same-day reply</span>
+          </div>
+
+          <div class="direct-list">
+            <div class="direct-row">
+              <span>Phone</span>
+              <span><a class="link" href="tel:647-786-6614">647-786-6614</a></span>
+            </div>
+            <div class="direct-row">
+              <span>Email</span>
+              <span><a class="link" href="mailto:info@blackstoneluxurylimo.com">info@blackstoneluxurylimo.com</a></span>
+            </div>
+            <div class="direct-row">
+              <span>Airport</span>
+              <span>Toronto Pearson (YYZ)</span>
+            </div>
+            <div class="direct-row">
+              <span>Hours</span>
+              <span>By booking</span>
+            </div>
+          </div>
+
+          <div class="hero-card__footer">
+            <a class="link" href="booking.html">Prefer form booking? →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact content -->
+  <section class="section">
+    <div class="container">
+      <div class="section__heading">
+        <h2>How can we help?</h2>
+        <p>Choose what fits best — quick estimate, booking request, or direct contact.</p>
+      </div>
+
+      <div class="grid grid--3 contact-grid">
+        <article class="card info-card">
+          <div class="card__body">
+            <h3>Need pricing fast?</h3>
+            <p>Use Quick Quote for one-way estimates to/from Pearson (YYZ). Then book when ready.</p>
+            <div class="card__actions" style="margin-top:14px;">
+              <a class="btn btn--small btn--primary" href="quick-quote.html">Quick Quote</a>
+              <a class="btn btn--small btn--ghost" href="booking.html">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card info-card">
+          <div class="card__body">
+            <h3>Ready to book?</h3>
+            <p>Submit details in Booking — pickup, drop-off, date/time, passengers — we’ll confirm.</p>
+            <div class="card__actions" style="margin-top:14px;">
+              <a class="btn btn--small btn--primary" href="booking.html">Booking</a>
+              <a class="btn btn--small btn--ghost" href="services.html">Services</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card info-card">
+          <div class="card__body">
+            <h3>Have a question?</h3>
+            <p>Call for urgent requests. Email for details, corporate accounts, or event planning.</p>
+            <div class="card__actions" style="margin-top:14px;">
+              <a class="btn btn--small btn--primary" href="tel:647-786-6614">Call</a>
+              <a class="btn btn--small btn--ghost" href="mailto:info@blackstoneluxurylimo.com">Email</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Image tiles (adds “pictures” like you asked) -->
+      <div class="section__heading" style="margin-top:44px;">
+        <h2>What we’re known for</h2>
+        <p>Comfort, punctuality, and a premium experience across the GTA.</p>
+      </div>
+
+      <div class="tiles">
+        <article class="tile">
+          <img class="tile__img" src="contact_tile_1.jpg" alt="Airport pickup and drop-off service" />
+          <div class="tile__body">
+            <h3>Airport pickup</h3>
+            <p>Clean vehicle, smooth timing, and stress-free travel to/from YYZ.</p>
+          </div>
+        </article>
+
+        <article class="tile">
+          <img class="tile__img" src="contact_tile_2.jpg" alt="Corporate travel and executive service" />
+          <div class="tile__body">
+            <h3>Corporate-ready</h3>
+            <p>Discreet service for meetings, executives, and client travel.</p>
+          </div>
+        </article>
+
+        <article class="tile">
+          <img class="tile__img" src="contact_tile_3.jpg" alt="Special events and evening transportation" />
+          <div class="tile__body">
+            <h3>Events & evenings</h3>
+            <p>Arrive in style for weddings, dinners, concerts, and special nights.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- FAQ -->
+      <div class="section__heading" style="margin-top:44px;">
+        <h2>FAQ</h2>
+        <p>Quick answers to the common questions we get.</p>
+      </div>
+
+      <div class="faq">
+        <details class="faq-item">
+          <summary><span>How far in advance should I book?</span><span class="chip">+</span></summary>
+          <div class="faq-a">
+            Same-day may be possible depending on availability. For early mornings, weekends, and events, booking 24–48 hours ahead is best.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span>Do you do early morning airport pickups?</span><span class="chip">+</span></summary>
+          <div class="faq-a">
+            Yes. Add your flight time and your preferred pickup time in the Booking form so we can confirm quickly.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span>Is Quick Quote an exact price?</span><span class="chip">+</span></summary>
+          <div class="faq-a">
+            It’s an estimate for one-way rides to/from YYZ. Final details are confirmed when you submit a booking request.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span>What details help you confirm faster?</span><span class="chip">+</span></summary>
+          <div class="faq-a">
+            Pickup address, drop-off address, date/time, passengers, and any flight details (if applicable).
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA (same as index) -->
+  <section class="cta">
+    <div class="container cta__wrap">
+      <div class="cta__left">
+        <h2>Need a ride soon?</h2>
+        <p>Book in under a minute. Prefer pricing first? Use Quick Quote.</p>
+      </div>
+      <div class="cta__right">
+        <a class="btn btn--primary" href="booking.html">Booking</a>
+        <a class="btn btn--ghost" href="quick-quote.html">Quick Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__wrap">
+      <div class="footer__left">
+        <div class="footer__brand">BlackStone Luxury Limo</div>
+        <div class="footer__small">Markham, Ontario • Call <strong>647-786-6614</strong></div>
+      </div>
+
+      <div class="footer__right">
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="#top" class="link">Back to top ↑</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© <span id="year"></span> BlackStone Luxury Limo. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const navToggle = document.getElementById("navToggle");
+    const nav = document.getElementById("nav");
+    navToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("nav--open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+ <script>
+  const header = document.querySelector(".header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 10) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+</script>
+
+
+</body>
+</html> 

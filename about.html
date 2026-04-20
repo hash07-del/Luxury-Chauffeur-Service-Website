@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | BlackStone Luxury Limo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header" id="top">
+    <a class="brand" href="index1.html" aria-label="BlackStone Luxury Limo Home">
+      <img class="brand__logo" src="flogo.png" alt="BlackStone Luxury Limo logo" />
+      <div class="brand__text">
+        <span class="brand__name">BlackStone</span>
+        <span class="brand__tag">Luxury Limo</span>
+      </div>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <a class="nav__link" href="index1.html">Home</a>
+      <a class="nav__link" href="services.html">Services</a>
+      <a class="nav__link active" href="about.html">About</a>
+      <a class="nav__link" href="contact.html">Contact</a>
+      <a class="nav__link nav__link--pill" href="quick-quote.html">Quick Quote</a>
+      <a class="nav__link nav__link--pill nav__link--primary" href="booking.html">Booking</a>
+    </nav>
+  </header>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container">
+      <div class="section__heading">
+        <h2>About</h2>
+        <p>
+          Premium SUV chauffeur service across the GTA — clean vehicles, punctual pickup, and a calm, private ride.
+        </p>
+      </div>
+
+      <div class="grid grid--2">
+        <article class="card">
+          <div class="card__body">
+            <h3>What we do</h3>
+            <p>
+              BlackStone Luxury Limo provides professional chauffeur service for airport transfers, corporate travel,
+              and special events. We focus on comfort, privacy, and being on time — every time.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--small btn--primary" href="booking.html">Book Now</a>
+              <a class="btn btn--small btn--ghost" href="quick-quote.html">Quick Quote</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <h3>What to expect</h3>
+            <p>
+              Clear communication, clean interior, and reliable pickups. Tell us your timing and destination —
+              we’ll confirm details and keep the experience smooth.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--small btn--primary" href="services.html">View Services</a>
+              <a class="btn btn--small btn--ghost" href="contact.html">Contact</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Details -->
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section__heading">
+        <h2>Why clients book BlackStone</h2>
+        <p>Simple, premium service — built for reliability and comfort.</p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card">
+          <div class="card__body">
+            <h3>Professional service</h3>
+            <p>Respectful, discreet chauffeur experience for business and personal travel.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <h3>Clean, premium SUV</h3>
+            <p>Comfort-first rides with a clean interior and a smooth driving experience.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <h3>On-time pickups</h3>
+            <p>Reliable arrival, clear confirmation, and support when plans change.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="center-actions">
+        <a class="btn btn--primary" href="booking.html">Book a Ride</a>
+        <a class="btn btn--ghost" href="quick-quote.html">Get a Quick Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta__wrap">
+      <div class="cta__left">
+        <h2>Need a ride?</h2>
+        <p>Book in under a minute. Prefer pricing first? Use Quick Quote.</p>
+      </div>
+      <div class="cta__right">
+        <a class="btn btn--primary" href="booking.html">Booking</a>
+        <a class="btn btn--ghost" href="quick-quote.html">Quick Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__wrap">
+      <div class="footer__left">
+        <div class="footer__brand">BlackStone Luxury Limo</div>
+        <div class="footer__small">
+          Markham, Ontario • Call <strong>647-786-6614</strong>
+        </div>
+      </div>
+
+      <div class="footer__right">
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="#top" class="link">Back to top ↑</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© <span id="year"></span> BlackStone Luxury Limo. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById("navToggle");
+    const nav = document.getElementById("nav");
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("nav--open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+ <script>
+  const header = document.querySelector(".header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 10) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+</script>
+
+
+</body>
+</html>

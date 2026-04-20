@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Quote | BlackStone Luxury Limo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- YOUR quick-quote styling kept (slightly adjusted background to match premium look) -->
+  <style>
+    .qq-page {
+      min-height: 100vh;
+      padding-top: 140px;
+      padding-bottom: 80px;
+      background: radial-gradient(900px 500px at 70% 20%, rgba(23, 67, 227, 0.18), transparent 60%),
+                  radial-gradient(700px 450px at 20% 80%, rgba(255,255,255,0.06), transparent 60%),
+                  #070c18;
+    }
+
+    .qq-wrap {
+      width: 460px;
+      max-width: calc(100% - 40px);
+      margin: 0 auto;
+      padding: 28px 26px 26px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .qq-wrap h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .qq-note {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .qq-note strong { color: #fff; }
+
+    .qq-wrap label {
+      display: block;
+      text-align: left;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 15px;
+      margin: 12px 0 8px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .qq-wrap select {
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(10,14,28,0.7);
+      color: #fff;
+      margin-bottom: 14px;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .qq-wrap select:focus {
+      outline: none;
+      border-color: rgba(23, 67, 227, 0.9);
+      box-shadow: 0 0 0 2px rgba(23, 67, 227, 0.25);
+    }
+
+    #fareDisplay {
+      margin: 18px 0 22px;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: 'Open Sans', sans-serif;
+      color: #fff;
+      background: rgba(23, 67, 227, 0.14);
+      border: 1px solid rgba(23, 67, 227, 0.25);
+      border-radius: 10px;
+    }
+
+    .qq-wrap button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, #1743e3, #0f2fbf);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(23, 67, 227, 0.28);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .qq-wrap button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(23, 67, 227, 0.38);
+    }
+
+    .qq-actions {
+      display:flex;
+      gap:10px;
+      margin-top: 12px;
+    }
+    .qq-actions a{
+      flex:1;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight:700;
+      font-family:'Montserrat', sans-serif;
+      border: 1px solid rgba(255,255,255,0.18);
+      color:#fff;
+      background: rgba(255,255,255,0.06);
+    }
+    .qq-actions a:hover{
+      background: rgba(255,255,255,0.10);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header (premium nav like Services) -->
+  <header class="header" id="top">
+    <a class="brand" href="index1.html" aria-label="BlackStone Luxury Limo Home">
+      <img class="brand__logo" src="flogo.png" alt="BlackStone Luxury Limo logo" />
+      <div class="brand__text">
+        <span class="brand__name">BlackStone</span>
+        <span class="brand__tag">Luxury Limo</span>
+      </div>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <a class="nav__link" href="index1.html">Home</a>
+      <a class="nav__link" href="services.html">Services</a>
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="contact.html">Contact</a>
+      <a class="nav__link nav__link--pill active" href="quick-quote.html">Quick Quote</a>
+      <a class="nav__link nav__link--pill nav__link--primary" href="booking.html">Booking</a>
+    </nav>
+  </header>
+
+  <!-- Content -->
+  <main class="qq-page">
+    <div class="qq-wrap">
+      <h1>Quick Quote</h1>
+
+      <p class="qq-note">
+        Estimates are based on one-way transportation
+        <strong>to or from Toronto Pearson International Airport (YYZ)</strong>.
+      </p>
+
+      <label for="city">Choose a city</label>
+      <select id="city">
+        <option value="" disabled selected>Select a city</option>
+        <option value="263">Montreal</option>
+        <option value="939">Ottawa</option>
+        <option value="1635">Quebec City</option>
+        <option value="229">Hamilton - DT</option>
+        <option value="130">Hamilton - MTN</option>
+        <option value="361">London</option>
+        <option value="741">Windsor</option>
+        <option value="253">Niagara Falls, ON</option>
+        <option value="184">Kitchener</option>
+        <option value="219">St. Catharines</option>
+      </select>
+
+      <label for="vehicle">Vehicle type</label>
+      <select id="vehicle">
+        <option value="" disabled selected>Select a vehicle</option>
+        <option value="SUV">SUV</option>
+        <option value="Sedan">Sedan</option>
+      </select>
+
+      <div id="fareDisplay">
+        Please select a city and vehicle type to see your estimate.
+      </div>
+
+      <button onclick="displayFare()">Get Estimate</button>
+
+      <div class="qq-actions">
+        <a href="booking.html">Book Now</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Mobile nav
+    const navToggle = document.getElementById("navToggle");
+    const nav = document.getElementById("nav");
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("nav--open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    function displayFare() {
+      const city = document.getElementById("city").value;
+      const vehicle = document.getElementById("vehicle").value;
+      const display = document.getElementById("fareDisplay");
+
+      if (!city || !vehicle) {
+        display.textContent = "Please select both a city and vehicle type.";
+        return;
+      }
+
+      let fare = parseInt(city);
+      if (vehicle === "SUV") fare -= 10;
+      if (vehicle === "Sedan") fare -= 25;
+
+      display.textContent =
+        ` $${fare} (${vehicle})`;
+    }
+  </script>
+
+ <script>
+  const header = document.querySelector(".header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 10) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+</script>
+
+</body>
+</html>
